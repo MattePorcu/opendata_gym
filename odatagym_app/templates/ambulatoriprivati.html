@@ -33,24 +33,23 @@
                             data: {'file_delimiter': 'sc'},
                             success: function(data) {
                                 for (var x in data) {
-                                    var path = $("#" + data[x].nome);
-                                    var value = Number(data[x]["ambulatoripubblici"]);
+                                    var path = $("#" + data[x].regione);
+                                    var value = Number(data[x]["ambulatoriprivati"]);
                                     if (value < 50) {
-                                        path.css('fill', '#eeeeff');
+                                        path.css('fill', '#eeffee');
                                     } else if (value < 100) {
-                                        path.css('fill', '#ccccff');
+                                        path.css('fill', '#ccffcc');
                                     } else if (value < 150) {
-                                        path.css('fill', '#aaaaff');
+                                       path.css('fill', '#aaffaa');
                                     } else if (value < 200) {
-                                        path.css('fill', '#8888ff');
+                                       path.css('fill', '#88ff88');
                                     } else if (value < 250) {
-					path.css('fill', '#6666ff');
+					path.css('fill', '#66ff66');
 				    } else if (value < 300) {
-					path.css('fill', '#3333ff');
-				   
-                                    } else (value > 300) {
-                                        path.css('fill', '#0000ff');
-                                    }
+					path.css('fill', '#33ff33');
+                                   } else if (value > 300) {
+                                        path.css('fill', '#00ff00');
+                                   }
                                 }
                             }
                         })

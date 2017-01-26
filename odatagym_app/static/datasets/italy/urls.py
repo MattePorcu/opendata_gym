@@ -30,8 +30,7 @@ urlpatterns = [
     url(r'examples/bandalarga/', ex_views.get_banda_larga),
     url(r'examples/bandalarga2020/', ex_views.get_banda_larga_2020),
     url(r'examples/ambulatoripubblici/', ex_views.get_ambulatori_pubblici),
-    url(r'examples/ambulatoriprivati/', ex_views.get_ambulatori_privati),
-    url(r'examples/ambulatoritotali/', ex_views.get_ambulatori_totali),
+   
     url(r'examples/sardinia_drugstores/', ex_views.get_sardinia_drugstores),
     url(r'examples/rome_accidents/', ex_views.get_rome_accidents),
 

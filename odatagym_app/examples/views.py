@@ -18,6 +18,15 @@ def get_banda_larga_2020(request):
 def get_banda_larga(request):
     return render(request, 'bandalarga.html')
 
+def get_ambulatori_pubblici(request):
+    return render(request, 'ambulatoripubblici.html')
+
+def get_ambulatori_privati(request):
+    return render(request, 'ambulatoriprivati.html')
+
+def get_ambulatori_totali(request):
+    return render(request, 'ambulatoritotali.html')
+
 
 def get_sardinia_drugstores(request):
     return render(request, 'markers.html',
