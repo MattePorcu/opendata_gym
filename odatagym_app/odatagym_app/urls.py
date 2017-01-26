@@ -34,6 +34,7 @@ urlpatterns = [
     url(r'examples/ambulatoritotali/', ex_views.get_ambulatori_totali),
     url(r'examples/sardinia_drugstores/', ex_views.get_sardinia_drugstores),
     url(r'examples/rome_accidents/', ex_views.get_rome_accidents),
+    url(r'examples/fermate/', ex_views.get_fermate),
 
     url(r'^admin/', include(admin.site.urls)),
 ]

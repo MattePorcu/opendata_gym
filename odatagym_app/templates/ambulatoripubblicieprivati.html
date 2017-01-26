@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>OpenData Gym</title>
+
+        <base href="/" />
+
+        {% include 'stylesheets.html' %}
+
+        <style>
+            .map {
+                width: 100%;
+                height: 800px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="italy_map" class="map"></div>
+        <div id="italy_map_2" class="map"></div>
+        {% include 'javascripts.html' %}
+
+        <script>
+            $(document).ready(function() {
+                $("#italy_map").svg({
+                    loadURL: "http://localhost:8000/static/media/svg/italy.svg",
+                    onLoad: function() {
+                        var svg = $("#italy_map").svg('get');
+
+                        $.get({
+                            url: 'http://localhost:8000/api/datasets/italy/ambulatori/',
+                            data: {'file_delimiter': 'sc'},
+                            success: function(data) {
+                                for (var x in data) {
+                                    var path = $("#" + data[x].regione, svg.root());
+                                    var value = Number(data[x]["ambulatoripubblici"]);
+                                    if (value < 50) {
+                                        path.css('fill', '#ffeeee');
+                                    } else if (value < 100) {
+                                        path.css('fill', '#ffcccc');
+                                    } else if (value < 150) {
+                                       path.css('fill', '#ffaaaa');
+                                    } else if (value < 200) {
+                                       path.css('fill', '#ff8888');
+                                    } else if (value < 250) {
+					path.css('fill', '#ff6666');
+				    } else if (value < 300) {
+					path.css('fill', '#ff3333');
+                                   } else if (value > 300) {
+                                        path.css('fill', '#ff0000');
+                                   }
+                                }
+                            }
+                        })
+                    },
+                    settings: {}
+                });
+
+
+		$("#italy_map_2").svg({
+                    loadURL: "http://localhost:8000/static/media/svg/italy.svg",
+                    onLoad: function() {
+                    var svg2 = $("#italy_map_2").svg('get')
+                    $.get({
+                            url: 'http://localhost:8000/api/datasets/italy/ambulatori/',
+                            data: {'file_delimiter': 'sc'},
+                            success: function(data) {
+                                for (var x in data) {
+                                    var path = $("#" + data[x].regione, svg2.root());
+                                    var value = Number(data[x]["ambulatoriprivati"]);
+                                    if (value < 50) {
+                                        path.css('fill', '#eeffee');
+                                    } else if (value < 100) {
+                                        path.css('fill', '#ccffcc');
+                                    } else if (value < 150) {
+                                       path.css('fill', '#aaffaa');
+                                    } else if (value < 200) {
+                                       path.css('fill', '#88ff88');
+                                    } else if (value < 250) {
+					path.css('fill', '#66ff66');
+				    } else if (value < 300) {
+					path.css('fill', '#33ff33');
+                                   } else if (value > 300) {
+                                        path.css('fill', '#00ff00');
+                                   }
+                                }
+                            }
+                        })             
+                    },
+                    settings: {}
+                });
+            })
+        </script>
+    </body>
+</html>

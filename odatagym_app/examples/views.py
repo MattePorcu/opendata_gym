@@ -19,7 +19,7 @@ def get_banda_larga(request):
     return render(request, 'bandalarga.html')
 
 def get_ambulatori_pubblici(request):
-    return render(request, 'ambulatoripubblici.html')
+    return render(request, 'ambulatoripubblicieprivati.html')
 
 def get_ambulatori_privati(request):
     return render(request, 'ambulatoriprivati.html')
@@ -32,6 +32,9 @@ def get_sardinia_drugstores(request):
     return render(request, 'markers.html',
                   context={'google_api_key': GOOGLE_API_KEY})
 
+def get_fermate(request):
+    return render(request, 'markers.html',
+                  context={'google_api_key': GOOGLE_API_KEY})
 
 def get_rome_accidents(request):
     return render(request, 'heatmap.html',

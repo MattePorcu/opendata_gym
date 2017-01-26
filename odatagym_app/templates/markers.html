@@ -10,7 +10,8 @@
 
         <style>
             #map {
-                height: 100%;
+                height: 80%;
+		margin: 20px;
             }
 
             html, body {
@@ -22,7 +23,10 @@
     </head>
 
     <body>
+	<h1 class="jumbotron text-center">FERMATE DEI MEZZI PUBBLICI IN SARDEGNA</h1>
         <div id="map"></div>
+	<div class="text-center">
+		<div>Data from <a href="http://dati.regione.sardegna.it/dataset/fermate-trasporto-pubblico-csv">Regione Autonoma Della Sardegna</a></div>
 
         {% include 'javascripts.html' %}
 
@@ -36,8 +40,7 @@
                 });
 
                 $.get({
-                    url: 'http://localhost:8000/api/datasets/sardinia/farmacie/',
-                    data: {'file_delimiter': 'sc'},
+                    url: 'http://localhost:8000/api/datasets/sardinia/fermate/',
                     success: function(data) {
                         for (var i=0; i<data.length; i++) {
                             var m = new google.maps.Marker({
