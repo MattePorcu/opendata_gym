@@ -36,6 +36,10 @@ def get_fermate(request):
     return render(request, 'markers.html',
                   context={'google_api_key': GOOGLE_API_KEY})
 
+def get_fermate_heatmap(request):
+    return render(request, 'heatmap.html',
+                  context={'google_api_key': GOOGLE_API_KEY})
+
 def get_rome_accidents(request):
     return render(request, 'heatmap.html',
                   context={'google_api_key': GOOGLE_API_KEY})
