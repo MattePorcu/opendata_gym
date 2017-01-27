@@ -29,7 +29,7 @@
                         var svg = $("#italy_map").svg('get');
 
                         $.get({
-                            url: 'http://localhost:8000/api/datasets/italy/ambulatori/',
+                            url: 'http://localhost:8000/api/datasets/italy/bandalarga/',
                             data: {'file_delimiter': 'sc'},
                             success: function(data) {
                                 for (var x in data) {
@@ -48,7 +48,7 @@
 				    } else if (value < 300) {
 					path.css('fill', '#3333ff');
 				   
-                                    } else (value > 300) {
+                                    } else {
                                         path.css('fill', '#0000ff');
                                     }
                                 }
